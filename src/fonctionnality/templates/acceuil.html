@@ -30,22 +30,23 @@
 
 </head>
 
-<body class="container-scroller">
-
-<!--debut du code à afficher si làutilisateur n'est pas authentifié-->
-<header id="header" class="header d-flex align-items-center fixed-top">
-      <nav id="navmenu" class="navmenu">
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-  </header>
+<body  class="index-page">
 
 
-
-
-
+<style>
+/* Définir l'animation fade-up */
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(22.222vh); /* Déplace l'élément vers le bas */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Remet l'élément à sa position d'origine */
+    }
+}
+</style>
   <main class="main">
-
-
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
@@ -54,52 +55,70 @@
           <div class="row">
             <div class="container text-center game">
            <div class="d-flex flex-column justify-content-center align-items-center">
-            <h1 data-aos="fade-up">Welcome to <img style="height: 80px;" src="{% static 'media/LOGO1.png' %}" alt=""></h1>
-             <p data-aos="fade-up" data-aos-delay="100">Quickly start your project now and set the stage for success<br></p>
+            <h1 style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">Welcome to <img style="height: 80px;" src="{% static 'media/LOGO1.png' %}" alt=""></h1>
+             <p style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">Quickly start your project now and set the stage for success<br></p>
             </div>
             </div>
         </div>
 
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Quickly start your project now and set the stage for success</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Quickscore is an application that combines chat and task management functionalities would be of great use in facilitating communication and collaboration within your teams or organizations.</p>
-            <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-              <a href="{% url 'login' %}" class="btn-get-started">Get Start</a>
+            <h1 id="parasi" style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">Quickly start your project now and set the stage for success</h1>
+            <p id="para" style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">Quickscore is an application that combines chat and task management functionalities would be of great use in facilitating communication and collaboration within your teams or organizations.</p>
+            <div class=""  id="get" style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">
+              <a href="{% url 'login' %}" class="btn btn-primary" id="bad">Get Started <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="{% static 'assets1/img/hero-img.png' %}" class="img-fluid animated" alt="">
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" style="opacity: 0; animation: fade-up 0.6s ease-in-out 0.2s forwards;">
+            <img  src="{% static 'assets1/img/hero-img.png' %}" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!--fin du code à afficher si làutilisateur n'est pas authentifié-->
-
-
- <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
   <!-- Vendor JS Files -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/simple-php-email-form@1.1.1/dist/validate.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/js/glightbox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/purecounter@1.3.0/dist/purecounter_vanilla.js"></script>
-  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="{% static 'assets1/js/main.js' %}"></script>
+<script>
 
 
+const interieur = document.querySelector("#bad")
 
+if (window.innerWidth <= 768) {
+    // Écran mobile
+    console.log("Appareil mobile détecté");
+    const exterieur = document.querySelector("#get");
+    const para = document.querySelector("#para")
+    const parasi = document.querySelector("#parasi")
+
+
+    exterieur.style.display = 'flex';
+    exterieur.style.justifyContent = 'center';
+    exterieur.style.alignItems = 'center';
+    exterieur.style.height = '100%';
+
+    para.style.display = 'flex';
+    para.style.justifyContent = 'center';
+    para.style.alignItems = 'center';
+    para.style.height = '100%';
+
+    parasi.style.display = 'flex';
+    parasi.style.justifyContent = 'center';
+    parasi.style.alignItems = 'center';
+    parasi.style.height = '100%';
+
+
+} else {
+    // Écran de PC
+    console.log("Écran de PC détecté");
+    const exterieur = document.querySelector("#get");
+    exterieur.className = "d-flex flex-column flex-md-row";
+    interieur.className = "btn btn-primary"
+}
+
+
+
+
+  </script>
 </body>
 </html>

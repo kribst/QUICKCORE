@@ -261,15 +261,15 @@ section,
   background: var(--accent-color);
   font-family: var(--heading-font);
   font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
+  font-size: 1.778vh;
+  letter-spacing: 0.111vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 40px;
-  border-radius: 4px;
+  padding: 1.333vh 4.444vh;
+  border-radius: 0.444vh;
   transition: 0.5s;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.889vh 3.111vh rgba(0, 0, 0, 0.1);
 }
 
 .hero .btn-get-started i {
@@ -372,3 +372,4 @@ section,
 .game{
     padding-bottom: 60px;
 }
+
